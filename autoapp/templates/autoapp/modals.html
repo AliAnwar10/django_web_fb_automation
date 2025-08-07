@@ -1,0 +1,85 @@
+
+<!-- Add Credential Modal -->
+<div class="modal fade" id="addCredentialModal" tabindex="-1" aria-labelledby="addCredentialModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addCredentialModalLabel">Add Credential</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addCredentialForm" action="{% url 'add_credential' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="{{ credential_form.email.id_for_label }}" class="form-label">Email</label>
+                        {{ credential_form.email }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ credential_form.password.id_for_label }}" class="form-label">Password</label>
+                        {{ credential_form.password }}
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 rounded">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Group Modal -->
+<div class="modal fade" id="addGroupModal" tabindex="-1" aria-labelledby="addGroupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addGroupModalLabel">Add Group</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addGroupForm" action="{% url 'add_group' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="{{ group_form.group_name.id_for_label }}" class="form-label">Group Name</label>
+                        {{ group_form.group_name }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ group_form.group_url.id_for_label }}" class="form-label">Group URL</label>
+                        {{ group_form.group_url }}
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 rounded">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Post Modal -->
+<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPostModalLabel">Add Post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addPostForm" action="{% url 'add_post' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="{{ post_form.title.id_for_label }}" class="form-label">Title</label>
+                        {{ post_form.title }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ post_form.description.id_for_label }}" class="form-label">Description</label>
+                        {{ post_form.description }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ post_form.hashtags.id_for_label }}" class="form-label">Hashtags</label>
+                        {{ post_form.hashtags }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ post_form.image.id_for_label }}" class="form-label">Image</label>
+                        {{ post_form.image }}
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 rounded">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>

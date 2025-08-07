@@ -1,0 +1,40 @@
+
+<h3 class="text-center">Select Posts and Groups</h3>
+<form method="post" action="{% url 'load_data' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="credential" class="form-label">Choose Credential</label>
+        <select name="credential" id="credential" class="form-select rounded">
+            {% for credential in credentials %}
+                <option value="{{ credential.id }}">{{ credential.email }}</option>
+            {% empty %}
+                <option>No credentials available</option>
+            {% endfor %}
+        </select>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Posts / Groups</th>
+                {% for group in groups %}
+                    <th>{{ group.group_name }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post.title }}</td>
+                    {% for group in groups %}
+                        <td>
+                            <input type="checkbox" name="selection_{{ post.id }}_{{ group.id }}">
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% empty %}
+                <tr><td colspan="{{ groups|length|add:1 }}">No posts available</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary w-100 rounded">Save Selections</button>
+</form>

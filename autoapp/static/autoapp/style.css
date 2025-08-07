@@ -1,0 +1,35 @@
+/* autoapp/static/css/style.css */
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.nav-pills .nav-link {
+    border-radius: 50rem;
+    margin: 0 5px;
+}
+
+.form-control, .form-select {
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    border-radius: 0.5rem;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.alert {
+    margin-bottom: 1rem;
+}
